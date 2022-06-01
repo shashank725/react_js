@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import App from "./App";
+import App from "./App";
 import Student from "./Student";
+import el from "./App";
 
 // #Both does the same thing
 // let el = <h1>Hello Shashank</h1> //JSX
@@ -9,4 +10,5 @@ import Student from "./Student";
 
 
 // ReactDOM.render(<App />, document.getElementById("root")); // To render class component in App.js
-ReactDOM.render(<Student />, document.getElementById("root")); // To render component in Student.js
+// ReactDOM.render(<Student />, document.getElementById("root")); // To render component in Student.js
+ReactDOM.render(el, document.getElementById("root"));
