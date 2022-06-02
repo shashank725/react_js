@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import Student from "./Student";
 import el from "./App";
 
 // #Both does the same thing
@@ -11,4 +10,7 @@ import el from "./App";
 
 // ReactDOM.render(<App />, document.getElementById("root")); // To render class component in App.js
 // ReactDOM.render(<Student />, document.getElementById("root")); // To render component in Student.js
-ReactDOM.render(el, document.getElementById("root"));
+// ReactDOM.render(el, document.getElementById("root"));
+
+import Student from "./Student"; //Directly accessing Student from Students.js
+ReactDOM.render(<Student name="Shashank" roll={1012}> !! </Student>, document.getElementById("root"));

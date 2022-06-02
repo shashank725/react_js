@@ -46,6 +46,8 @@ import "./App.css"
 // export default App;
 
 
-// Specifying Attributes with JSX
-const el = <h1 className="bg">Hello</h1>;
-export default el;
+// // Specifying Attributes with JSX
+// const el = <h1 className="bg">Hello</h1>;
+// export default el;
+
+
