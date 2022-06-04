@@ -13,4 +13,6 @@ import el from "./App";
 // ReactDOM.render(el, document.getElementById("root"));
 
 import Student from "./Student"; //Directly accessing Student from Students.js
-ReactDOM.render(<Student name="Shashank" roll={1012}> !! </Student>, document.getElementById("root"));
+// ReactDOM.render(<Student name="Shashank" roll={1012}> !! </Student>, document.getElementById("root"));  // For prop-types
+ReactDOM.render(<Student roll="102"/>, document.getElementById("root"));
+
