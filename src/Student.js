@@ -16,7 +16,7 @@ import PropType from "prop-types";      // For Typechecking
 //     render(){
 //         return (
 //             <div>
-//                 <h1>Hello {this.props.name} {this.props.children}</h1>
+//                 <h1>Hello {this.props.name} {this.props.children}</h1>     //prop-types
 //                 <h2>Roll : {this.props.roll}</h2>
 //             </div>
 //         );
@@ -33,25 +33,65 @@ import PropType from "prop-types";      // For Typechecking
 // export default Student;
 
 
-// State
-class Student extends Component {
-    // // 1. State without contructor
-    // state = {
-    //     name: "Shashank",
-    //     roll: this.props.roll
-    // };
-    // // 2. State with constructor
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: "Shashank",
-            roll: this.props.roll
-        };
-    }
-    render(){
-        return (
-            <h1>Hello {this.state.name}. Your Roll No. : {this.state.roll}</h1>
-        )
-    }
+
+// // State      (only used in class components)
+// class Student extends Component {
+//     // // 1. State without contructor
+//     // state = {
+//     //     name: "Shashank",
+//     //     roll: this.props.roll
+//     // };
+//     // // 2. State with constructor
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             name: "Shashank",
+//             roll: this.props.roll
+//         };
+//     }
+//     render(){
+//         return (
+//             <h1>Hello {this.state.name}. Your Roll No. : {this.state.roll}</h1>
+//         )
+//     }
+// }
+// export default Student;
+
+
+
+// // Event Handling
+// class Student extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             name: "Shashank Shekhar",
+//             roll: this.props.roll
+//         };
+//     }
+//     handleClick = () => {         //No need to mention const, when writing function inside a class
+//         console.log("Button Clicked", this);
+//     };
+//     render() {
+//         return(
+//             <div>
+//                 <h1>Hello {this.state.name}</h1>
+//                 <h2>Your Roll No. : {this.state.roll}</h2>
+//                 <button onClick={this.handleClick}>Click Me</button>
+//             </div>
+//         );
+//     }
+const Student = (props) => {
+    const handleClick = (e) => {
+        e.preventDefault();    //To prevent being redirected to the link, when clicked 
+        console.log("Button Clicked",);
+    };
+    return (
+        <div>
+            <h1>Hello !</h1>
+            <h2>Your Roll No. : {props.roll}</h2>
+            <a href="https://reactjs.org/" onClick={handleClick}>Click Here</a>
+        </div>
+    );
 }
 export default Student;
+
