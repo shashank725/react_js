@@ -60,6 +60,7 @@ import PropType from "prop-types";      // For Typechecking
 
 
 // // Event Handling
+// // Class Component 
 // class Student extends Component {
 //     constructor(props) {
 //         super(props);
@@ -80,18 +81,52 @@ import PropType from "prop-types";      // For Typechecking
 //             </div>
 //         );
 //     }
-const Student = (props) => {
-    const handleClick = (e) => {
-        e.preventDefault();    //To prevent being redirected to the link, when clicked 
-        console.log("Button Clicked",);
+// // Function Component
+// const Student = (props) => {
+//     const handleClick = (e) => {
+//         e.preventDefault();    //To prevent being redirected to the link, when clicked 
+//         console.log("Button Clicked",);
+//     };
+//     return (
+//         <div>
+//             <h1>Hello !</h1>
+//             <h2>Your Roll No. : {props.roll}</h2>
+//             <a href="https://reactjs.org/" onClick={handleClick}>Click Here</a>
+//         </div>
+//     );
+// }
+// export default Student;
+
+
+
+// Update State using setState Method
+class Student extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            name: "Shashank",
+            roll: this.props.roll
+        };
+    }
+    handleClick = () => {
+        this.setState({name: "Shashank Shekhar", roll: 100})
+        //Another form of setState, in this it takes function as argument
+        this.setState(function(state, props){            //In Normal function      
+            console.log("State :", state, "Props :", props);
+        });
+        this.setState((state, props) => {                //In Arrow function
+            console.log("State :", state, "Props :", props);
+        });
+        //Till here
+        console.log("Button Clicked");
     };
-    return (
-        <div>
-            <h1>Hello !</h1>
-            <h2>Your Roll No. : {props.roll}</h2>
-            <a href="https://reactjs.org/" onClick={handleClick}>Click Here</a>
-        </div>
-    );
+    render() {
+        return (
+            <div>
+                <h1>Hello, {this.state.name}. Your roll No. : {this.state.roll}</h1>
+                <button onClick={this.handleClick}>Click Me</button>
+            </div>
+        );
+    }
 }
 export default Student;
-
