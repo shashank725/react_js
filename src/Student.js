@@ -99,32 +99,69 @@ import PropType from "prop-types";      // For Typechecking
 
 
 
-// Update State using setState Method
+// // Update State using setState Method
+// class Student extends Component {
+//     constructor(props){
+//         super(props);
+//         this.state = {
+//             name: "Shashank",
+//             roll: this.props.roll
+//         };
+//     }
+//     handleClick = () => {
+//         this.setState({name: "Shashank Shekhar", roll: 100})
+//         //Another form of setState, in this it takes function as argument
+//         this.setState(function(state, props){            //In Normal function      
+//             console.log("State :", state, "Props :", props);
+//         });
+//         this.setState((state, props) => {                //In Arrow function
+//             console.log("State :", state, "Props :", props);
+//         });
+//         //Till here
+//         console.log("Button Clicked");
+//     };
+//     render() {
+//         return (
+//             <div>
+//                 <h1>Hello, {this.state.name}. Your roll No. : {this.state.roll}</h1>
+//                 <button onClick={this.handleClick}>Click Me</button>
+//             </div>
+//         );
+//     }
+// }
+// export default Student;
+
+
+
+// Passing Arguments to Event Handlers
 class Student extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            name: "Shashank",
-            roll: this.props.roll
-        };
-    }
-    handleClick = () => {
-        this.setState({name: "Shashank Shekhar", roll: 100})
-        //Another form of setState, in this it takes function as argument
-        this.setState(function(state, props){            //In Normal function      
-            console.log("State :", state, "Props :", props);
-        });
-        this.setState((state, props) => {                //In Arrow function
-            console.log("State :", state, "Props :", props);
-        });
-        //Till here
-        console.log("Button Clicked");
+    state = {
+        id: 1,
+        name: "Shashank"
     };
-    render() {
+    
+    handleClick = (id, e) => {
+        console.log(id);
+        console.log(e);
+    };
+    // 1.Passing Arguments with Arrow function
+    // handleClickArg = (e) => {      //"e" is for to get event object
+    //     this.handleClick(this.state.id, e);
+    // };
+    render(){
         return (
+            // <div>
+            //     <h1>Hello, {this.state.name}</h1>
+            //     {/* <button onClick={this.handleClickArg}>Delete</button> */}
+            //     {/*//Another way of Passing Arguments with Arrow function */}
+            //     <button onClick={(e) => {    
+            //         this.handleClick(this.state.id, e);
+            //         }}>Delete</button>
+            // </div>
+            // 2.Passing Arguments with Bind Method
             <div>
-                <h1>Hello, {this.state.name}. Your roll No. : {this.state.roll}</h1>
-                <button onClick={this.handleClick}>Click Me</button>
+                <h1>Hello. {this.state.name}</h1>
+                <button onClick={this.handleClick.bind(this, this.state.id)}>Delete</button>
             </div>
         );
     }

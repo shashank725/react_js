@@ -14,5 +14,5 @@ import el from "./App";
 
 import Student from "./Student"; //Directly accessing Student from Students.js
 // ReactDOM.render(<Student name="Shashank" roll={1012}> !! </Student>, document.getElementById("root"));  // For prop-types
-ReactDOM.render(<Student roll="102"/>, document.getElementById("root"));      // For State, Event Handling
+ReactDOM.render(<Student roll="102"/>, document.getElementById("root"));      // For State, Event Handling, Update State using setState Method, Passing Arguments to Event Handlers
 
