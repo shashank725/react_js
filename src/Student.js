@@ -133,37 +133,53 @@ import PropType from "prop-types";      // For Typechecking
 
 
 
-// Passing Arguments to Event Handlers
-class Student extends Component {
-    state = {
-        id: 1,
-        name: "Shashank"
-    };
-    
-    handleClick = (id, e) => {
-        console.log(id);
-        console.log(e);
-    };
-    // 1.Passing Arguments with Arrow function
-    // handleClickArg = (e) => {      //"e" is for to get event object
-    //     this.handleClick(this.state.id, e);
-    // };
-    render(){
-        return (
-            // <div>
-            //     <h1>Hello, {this.state.name}</h1>
-            //     {/* <button onClick={this.handleClickArg}>Delete</button> */}
-            //     {/*//Another way of Passing Arguments with Arrow function */}
-            //     <button onClick={(e) => {    
-            //         this.handleClick(this.state.id, e);
-            //         }}>Delete</button>
-            // </div>
-            // 2.Passing Arguments with Bind Method
-            <div>
-                <h1>Hello. {this.state.name}</h1>
-                <button onClick={this.handleClick.bind(this, this.state.id)}>Delete</button>
-            </div>
-        );
-    }
+// // Passing Arguments to Event Handlers
+// class Student extends Component {
+//     state = {
+//         id: 1,
+//         name: "Shashank"
+//     };
+//     handleClick = (id, e) => {
+//         console.log(id);
+//         console.log(e);
+//     };
+//     // 1.Passing Arguments with Arrow function
+//     // handleClickArg = (e) => {      //"e" is for to get event object
+//     //     this.handleClick(this.state.id, e);
+//     // };
+//     render(){
+//         return (
+//             // <div>
+//             //     <h1>Hello, {this.state.name}</h1>
+//             //     {/* <button onClick={this.handleClickArg}>Delete</button> */}
+//             //     {/*//Another way of Passing Arguments with Arrow function */}
+//             //     <button onClick={(e) => {    
+//             //         this.handleClick(this.state.id, e);
+//             //         }}>Delete</button>
+//             // </div>
+//             // 2.Passing Arguments with Bind Method
+//             <div>
+//                 <h1>Hello. {this.state.name}</h1>
+//                 <button onClick={this.handleClick.bind(this, this.state.id)}>Delete</button>
+//             </div>
+//         );
+//     }
+// }
+// export default Student;
+
+
+
+// Mounting (connected to App.js)
+import Marks from "./Marks";
+export default class Student extends Component {
+  render() {
+    console.log("Student called [Child of App]")
+    return (
+      <div>
+          <h1>Hello {this.props.name}</h1>
+          <Marks/>
+      </div>
+    );
+  }
 }
-export default Student;
+

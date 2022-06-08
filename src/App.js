@@ -51,3 +51,37 @@ import "./App.css"
 // export default el;
 
 
+
+// Mounting    (Can only use these phases in class component)
+import Student from "./Student";
+export default class App extends Component {    //No need to write "export default App;" cause it is already mention here
+    constructor(props) {
+        super(props);
+        console.log("Constructor called")
+        console.log(props)
+        this.state = {
+            roll: "100"
+        };
+    }
+    static getDerivedStateFromProps(props, state) {     //Rarely used cases where the state depends on changes in prop over time. This method doesn't have access to the component instance.
+        console.log("getDerivedStateFromProps called");
+        console.log(props, state);
+        return null;
+    }
+    componentDidMount() {
+        // Get data from server and set the data to state
+        console.log("componentDidMount - Mounted")
+    }
+    render() {
+        console.log("App render called");
+        return (
+        <div>
+            <Student name="Shashank"/>
+        </div>
+        )
+    }
+}
+
+
+
+
