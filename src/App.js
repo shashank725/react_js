@@ -52,31 +52,56 @@ import "./App.css"
 
 
 
-// Mounting    (Can only use these phases in class component)
-import Student from "./Student";
-export default class App extends Component {    //No need to write "export default App;" cause it is already mention here
-    constructor(props) {
-        super(props);
-        console.log("Constructor called")
-        console.log(props)
-        this.state = {
-            roll: "100"
+// // Mounting    (Can only use these phases in class component)
+// import Student from "./Student";
+// export default class App extends Component {    //No need to write "export default App;" cause it is already mention here
+//     constructor(props) {
+//         super(props);
+//         console.log("Constructor called")
+//         console.log(props)
+//         this.state = {
+//             roll: "100"
+//         };
+//     }
+//     static getDerivedStateFromProps(props, state) {     //Rarely used cases where the state depends on changes in prop over time. This method doesn't have access to the component instance.
+//         console.log("getDerivedStateFromProps called");
+//         console.log(props, state);
+//         return null;
+//     }
+//     componentDidMount() {
+//         // Get data from server and set the data to state (Line 22 in Marks.js for more explanation)
+//         console.log("componentDidMount - Mounted")
+//     }
+//     render() {
+//         console.log("App render called");
+//         return (
+//         <div>
+//             <Student name="Shashank"/>
+//         </div>
+//         )
+//     }
+// }
+
+
+
+// Updating
+import Marks from "./Marks";
+export default class App extends Component {
+    constructor() {
+        super();
+        this.state = {                        //With constructor
+            roll: 101
         };
     }
-    static getDerivedStateFromProps(props, state) {     //Rarely used cases where the state depends on changes in prop over time. This method doesn't have access to the component instance.
-        console.log("getDerivedStateFromProps called");
-        console.log(props, state);
-        return null;
-    }
-    componentDidMount() {
-        // Get data from server and set the data to state
-        console.log("componentDidMount - Mounted")
-    }
+    clickHandle = () => {
+        console.log("Button Clicked");
+        this.setState({roll: this.state.roll + 1})
+    };
     render() {
-        console.log("App render called");
         return (
         <div>
-            <Student name="Shashank"/>
+            <Marks roll={this.state.roll} />
+            <button onClick={this.clickHandle}>Change</button>
         </div>
         )
     }

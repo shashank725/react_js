@@ -169,17 +169,17 @@ import PropType from "prop-types";      // For Typechecking
 
 
 
-// Mounting (connected to App.js)
-import Marks from "./Marks";
-export default class Student extends Component {
-  render() {
-    console.log("Student called [Child of App]")
-    return (
-      <div>
-          <h1>Hello {this.props.name}</h1>
-          <Marks/>
-      </div>
-    );
-  }
-}
+// // Mounting (connected to App.js)
+// import Marks from "./Marks";
+// export default class Student extends Component {
+//   render() {
+//     console.log("Student called [Child of App]")
+//     return (
+//       <div>
+//           <h1>Hello {this.props.name}</h1>
+//           <Marks/>
+//       </div>
+//     );
+//   }
+// }
 
