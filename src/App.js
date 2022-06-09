@@ -84,29 +84,44 @@ import "./App.css"
 
 
 
-// Updating
-import Marks from "./Marks";
+// // Updating
+// import Marks from "./Marks";
+// export default class App extends Component {
+//     constructor() {
+//         super();
+//         this.state = {                        //With constructor
+//             roll: 101
+//         };
+//     }
+//     clickHandle = () => {
+//         console.log("Button Clicked");
+//         this.setState({roll: this.state.roll + 1})
+//     };
+//     render() {
+//         return (
+//         <div>
+//             <Marks roll={this.state.roll} />
+//             <button onClick={this.clickHandle}>Change</button>
+//         </div>
+//         )
+//     }
+// }
+
+
+
+// Unmounting
 export default class App extends Component {
-    constructor() {
-        super();
-        this.state = {                        //With constructor
-            roll: 101
-        };
+    componentDidMount(){
+        console.log("App mounted");
     }
-    clickHandle = () => {
-        console.log("Button Clicked");
-        this.setState({roll: this.state.roll + 1})
-    };
-    render() {
-        return (
-        <div>
-            <Marks roll={this.state.roll} />
-            <button onClick={this.clickHandle}>Change</button>
-        </div>
-        )
+    componentWillUnmount(){
+        console.log("App Unmounted");
     }
+  render() {
+    console.log("App rendered");
+    return (
+      <h1>Hello App Component</h1>
+    )
+  }
 }
-
-
-
 
