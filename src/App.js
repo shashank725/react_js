@@ -26,30 +26,47 @@ import React, { useState, useEffect } from "react"
 
 
 
-// useEffect Hook
-function App(){
-  const [countUp, setCountUp] = useState(0);
-  const [countDown, setCountDown] = useState(25);
-  const handleIncrement = () => {
-    setCountUp(countUp + 1);
-  };
-  const handleDecrement = () => {
-    setCountDown(countDown - 1);
-  };
-  // useEffect(() => {
-  //   console.log("useEffect called");
-  // });
-  useEffect(() => {                   //Another way of writing useEffect (It only runs when the element in the list changes)
-    console.log("useEffect called");
-  }, [countUp]);
-  console.log("Rendered");
+// // useEffect Hook
+// function App(){
+//   const [countUp, setCountUp] = useState(0);
+//   const [countDown, setCountDown] = useState(25);
+//   const handleIncrement = () => {
+//     setCountUp(countUp + 1);
+//   };
+//   const handleDecrement = () => {
+//     setCountDown(countDown - 1);
+//   };
+//   // useEffect(() => {
+//   //   console.log("useEffect called");
+//   // });
+//   useEffect(() => {                   //Another way of writing useEffect (It only runs when the element in the list changes)
+//     console.log("useEffect called");
+//   }, [countUp]);
+//   console.log("Rendered");
+//   return (
+//     <React.Fragment>
+//       <h1>Count Up : {countUp}</h1>
+//       <button onClick={handleIncrement}>Increment</button>
+
+//       <h1>Count Down : {countDown}</h1>
+//       <button onClick={handleDecrement}>Decrement</button>
+//     </React.Fragment>
+//   )
+// }
+// export default App;
+
+
+
+// Custom Hook
+import useCustomCounter from "./Custom";
+function App () {
+  const data = useCustomCounter();         //Calling our Custom Hook (It can be used many times)
+  console.log (data);
+
   return (
     <React.Fragment>
-      <h1>Count Up : {countUp}</h1>
-      <button onClick={handleIncrement}>Increment</button>
-
-      <h1>Count Down : {countDown}</h1>
-      <button onClick={handleDecrement}>Decrement</button>
+      <h1>Count Up : {data.count}</h1>
+      <button onClick={data.handleIncrement}>Increment</button>
     </React.Fragment>
   )
 }
