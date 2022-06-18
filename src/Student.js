@@ -185,15 +185,15 @@ import PropType from "prop-types";      // For Typechecking
 
 
 
-// Unmounting
-export default class Student extends Component {
-    componentDidMount(){
-        console.log("Student mounted")
-    }
-  render() {
-    console.log("Student rendered");
-    return (
-      <h2>Hello Student Component</h2>
-    )
-  }
-}
+// // Unmounting
+// export default class Student extends Component {
+//     componentDidMount(){
+//         console.log("Student mounted")
+//     }
+//   render() {
+//     console.log("Student rendered");
+//     return (
+//       <h2>Hello Student Component</h2>
+//     )
+//   }
+// }
